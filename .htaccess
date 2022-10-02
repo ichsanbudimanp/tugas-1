@@ -3,3 +3,15 @@
     RewriteCond %{REQUEST_URI}!^public
     RewriteRule ^(.*)$ public/$1 [L]
 </IfModule>
+
+DirectoryIndex index.php
+RewriteEngine On
+
+# skip rule below if URI is already /index.php
+RewriteRule ^index\.php$ - [L,NC]
+
+# rewrite to /index.php if URI has /index.php or request
+# is for a non-file
+RewriteRule /index\.php [OR,NC]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^(.+)$ /index.php [L]
