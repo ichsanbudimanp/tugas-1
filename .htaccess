@@ -1,13 +1,5 @@
 <IfModule mod_rewrite.c>
-    DirectoryIndex /index.html
-    RewriteEngine On
-
-    # skip rule below if URI is already /index.html
-    RewriteRule ^index\.html$ - [L,NC]
-
-    # rewrite to /index.html if URI has /index.html or request
-    # is for a non-file
-    RewriteRule /index\.html [OR,NC]
-    RewriteCond %{REQUEST_FILENAME} !-f
-    RewriteRule ^(.+)$ /index.html [L]
+    RewriteEngine on
+    RewriteCond %{REQUEST_URI}!^public
+    RewriteRule ^(.*)$ public/$1 [L]
 </IfModule>
