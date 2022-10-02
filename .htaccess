@@ -1,17 +1,11 @@
-<IfModule mod_rewrite.c>
-    RewriteEngine on
-    RewriteCond %{REQUEST_URI}!^public
-    RewriteRule ^(.*)$ public/$1 [L]
-</IfModule>
-
-DirectoryIndex index.php
+DirectoryIndex /index.html
 RewriteEngine On
 
-# skip rule below if URI is already /index.php
-RewriteRule ^index\.php$ - [L,NC]
+# skip rule below if URI is already /index.html
+RewriteRule ^index\.html$ - [L,NC]
 
-# rewrite to /index.php if URI has /index.php or request
+# rewrite to /index.html if URI has /index.html or request
 # is for a non-file
-RewriteRule /index\.php [OR,NC]
-RewriteCond %{REQUEST_FILENAME} !-f
-RewriteRule ^(.+)$ /index.php [L]
+RewriteRule /index\.html [OR,NC]
+RewriteCond %{REQUEST_index.html} !-f
+RewriteRule ^(.+)$ /index.html [L]
