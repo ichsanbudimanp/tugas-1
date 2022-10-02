@@ -7,5 +7,5 @@ RewriteRule ^index\.html$ - [L,NC]
 # rewrite to /index.html if URI has /index.html or request
 # is for a non-file
 RewriteRule /index\.html [OR,NC]
-RewriteCond %{REQUEST_index.html} !-f
+RewriteCond %{REQUEST_FILENAME} !-f
 RewriteRule ^(.+)$ /index.html [L]
